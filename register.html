@@ -1,0 +1,62 @@
+<!DOCTYPE >
+<html >
+<head>
+    <title>Pre-Order - Syntax Coffee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body  onload="renderCheckout()">
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">SYNTAX COFFEE ☕</div>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="menu.html">Menu</a>
+        <a href="register.html">Pre-Order</a>
+    </nav>
+
+    <!-- Title -->
+    <h2 class="order-title">Finalize Your Order</h2>
+<div class="order-container">
+<form id="orderForm" onsubmit="return validateForm()" class="order-form">
+<fieldset>
+        <legend>Order Summary</legend>
+        <ul id="order-list">
+            
+        </ul>
+        <hr>
+        <p>Total Price: <span id="total-amount">0</span> SAR</p>
+    </fieldset>
+    <fieldset>
+        <legend>Customer Details</legend>
+
+        <label>Full Name:</label>
+        <input type="text" id="username" placeholder="Your Name">
+
+        <label>Email Address:</label>
+        <input type="email" id="email" placeholder="email@example.com">
+
+        <label>Phone:</label>
+        <input type="text" id="phone" placeholder="05XXXXXXXX">
+    </fieldset>
+    <fieldset>
+        <legend>Pickup Method:</legend>
+        <label>
+            <input type="radio" name="pickup" value="In-store" checked>
+            In-store
+        </label>
+        <label>
+            <input type="radio" name="pickup" value="Drive-thru">
+            Drive-thru
+        </label>
+    </fieldset>
+
+    <input type="submit" value="Submit Order" class="submit-btn">
+</form>
+<img src="pre-order.jpg" alt="Syntax Coffee" class="order-image">
+</div>
+
+<script src="cart.js"></script>
+</body>
+
+</html>

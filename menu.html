@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu-Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4ece1;
+        }
+        /* MENU CONTAINER */
+        .menu-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            padding: 40px;
+            justify-items: center;
+        }
+        /* CARD */
+        .coffee-card{
+            width: 300px;
+            background-color: #fffaf4;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+        .coffee-card:hover{
+            transform: translateY(-5px);
+        }
+        /* IMAGE */
+        .coffee-card img{
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        /* TITLE */
+        .coffee-card h3{
+            color: #4b2e2e;
+            font-size: 30px;
+            margin-top: 15px;
+        }
+        /* PRICE */
+        .price{
+            font-size: 24px;
+            font-weight: bold;
+            color: #6f4e37;
+        }
+        /* BUTTON */
+        .coffee-card button{
+            background-color: #6f4e37;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .coffee-card button:hover{
+            background-color: #4b2e2e;
+        }
+        /* TABLE */
+        h2{
+            text-align: center;
+            color: #4b2e2e;
+            font-size: 40px;
+            margin-top: 30px;
+        }
+        header{
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header h1{
+    font-size: 65px;
+    color:  #4b2e2e;
+    font-family: Georgia, serif;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    margin-bottom: 15px;
+}
+
+header p{
+    font-size: 20px;
+    color: #6f4e37;
+}
+.coffee-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 85%;
+    margin: 40px auto;
+    padding: 0;
+    list-style: none;
+}
+.coffee-list > li{
+    background-color: #fffaf4;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    font-size: 28px;
+    color: #4b2e2e;
+}
+.coffee-list ul{
+    margin-top: 15px;
+    padding-left: 25px;
+}
+.coffee-list ul li{
+    font-size: 20px;
+    color: #6f4e37;
+    margin: 10px 0;
+}
+.coffee-list > li:hover{
+    transform: translateY(-8px);
+    transition: 1.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+label{
+    font-size: 20px;
+    color: #4b2e2e;
+    font-weight: bold;
+}
+
+select{
+    width: 180px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #8b5e3c;
+    background-color: #fffaf4;
+    color: #4b2e2e;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+select:hover{
+    background-color: #f7eee3;
+}
+
+select:focus{
+    outline: none;
+    border-color: #6f4e37;
+    box-shadow: 0 0 10px rgba(111,78,55,0.3);
+}
+.preorder-btn-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+.preorder-btn{
+    background-color: #6f4e37;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.preorder-btn:hover{
+    background-color: #4b2e2e;
+    transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <div class="logo">SYNTAX COFFEE ☕</div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="menu.html">Menu</a>
+        <a href="register.html">Pre-Order</a>
+    </nav>
+    <!-- HEADER -->
+    <header>
+        <h1>Our Coffee Menu</h1>
+        <p>Enjoy premium coffee made with love ☕</p>
+    </header>
+    <!-- COFFEE CARDS -->
+    <div class="menu-container">
+        <div class="coffee-card">
+            <img src="Spanish Latte.jpg" alt="Spanish Latte">
+            <h3>Spanish Latte</h3>
+            <p class="price" id="price1">16 SAR</p>
+            <label>Size:</label>
+            <select onchange="changePrice(this,'price1')">
+    <option value="16">Small</option>
+    <option value="18">Medium</option>
+    <option value="20">Large</option>
+</select><br>
+            <button onclick="addToCart('Spanish Latte' ,'price1')">
+    Add to Cart
+</button>
+        </div>
+
+        <div class="coffee-card">
+            <img src="Flat White.jpg" alt="Flat White">
+            <h3>Flat White</h3>
+            <p class="price" id="price2">14 SAR</p>
+            <label>Size:</label>
+        <select onchange="changePrice(this,'price2')">
+    <option value="14">Small</option>
+    <option value="16">Medium</option>
+    <option value="18">Large</option>
+</select><br>
+            <button onclick="addToCart('Flat White', 'price2')">
+                Add to Cart
+            </button>
+
+        </div>
+
+        <div class="coffee-card">
+            <img src="cappuccino.jpg" alt="Cappuccino">
+            <h3>Cappuccino</h3>
+        <p class="price" id="price3">12 SAR</p>
+            <label>Size:</label>
+            <select onchange="changePrice(this,'price3')">
+    <option value="12">Small</option>
+    <option value="14">Medium</option>
+    <option value="16">Large</option>
+</select><br>
+            <button onclick="addToCart('Cappuccino', 'price3')">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="coffee-card">
+            <img src="V60 Coffee.jpg" alt="V60">
+            <h3>V60 Coffee</h3>
+            <p class="price" id="price4">15 SAR</p>
+            <label>Size:</label>
+            <select onchange="changePrice(this,'price4')">
+    <option value="15">Small</option>
+    <option value="17">Medium</option>
+    <option value="19">Large</option>
+</select><br>
+            <button onclick="addToCart('V60 Coffee', 'price4')">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="coffee-card">
+            <img src="Cortado.jpg" alt="Cortado">
+            <h3>Cortado</h3>
+            <p class="price" id="price5">14 SAR</p>
+            <label>Size:</label>
+            <select onchange="changePrice(this,'price5')">
+    <option value="14">Small</option>
+    <option value="16">Medium</option>
+    <option value="18">Large</option>
+</select><br>
+            <button onclick="addToCart('Cortado', 'price5')">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="coffee-card">
+            <img src="Iced Latte.jpg" alt="Iced Latte">
+            <h3>Iced Latte</h3>
+        <p class="price" id="price6">14 SAR</p>
+            <label>Size:</label>
+            <select onchange="changePrice(this,'price6')">
+    <option value="14">Small</option>
+    <option value="16">Medium</option>
+    <option value="18">Large</option>
+</select><br>
+            <button onclick="addToCart('Iced Latte', 'price6')">
+                Add to Cart
+            </button>
+        </div>
+        <!-- DESSERT CARDS -->
+<div class="coffee-card">
+    <img src="Cookies.jpg" alt="Cookies">
+    <h3>Cookies</h3>
+    <p class="price">12 SAR</p>
+    <button onclick="addToCart('Cookies', 12)">
+        Add to Cart
+    </button>
+</div>
+
+<div class="coffee-card">
+    <img src="Cheesecake.jpg" alt="Cheesecake">
+    <h3>Cheesecake</h3>
+    <p class="price">20 SAR</p>
+    <button onclick="addToCart('Cheesecake', 20)">
+        Add to Cart
+    </button>
+</div>
+
+<div class="coffee-card">
+    <img src="Matilda Cake.jpg" alt="Matilda Cake">
+    <h3>Matilda Cake</h3>
+    <p class="price">25 SAR</p>
+    <button onclick="addToCart('Matilda Cake', 25)">
+        Add to Cart
+    </button>
+</div>
+    </div>
+    <div class="preorder-btn-container">
+    <a href="register.html" class="preorder-btn">
+        Complete Your Order ☕
+    </a>
+</div>
+<h2>Coffee Details</h2>
+<ul class="coffee-list">
+    <li>
+        <strong>Spanish Latte</strong>
+        <ul>
+            <li>Caffeine Level: Medium</li>
+            <li>Milk Type: Whole Milk</li>
+            <li>Roast: Dark</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Flat White</strong>
+        <ul>
+            <li>Caffeine Level: High</li>
+            <li>Milk Type: Light Foam</li>
+            <li>Roast: Medium</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Cappuccino</strong>
+        <ul>
+            <li>Caffeine Level: Medium</li>
+            <li>Milk Type: Foamy Milk</li>
+            <li>Roast: Medium</li>
+        </ul>
+    </li>
+    <li>
+        <strong>V60 Coffee</strong>
+        <ul>
+            <li>Caffeine Level: High</li>
+            <li>Milk Type: No Milk</li>
+            <li>Roast: Light</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Cortado</strong>
+        <ul>
+            <li>Caffeine Level: Medium</li>
+            <li>Milk Type: Steamed Milk</li>
+            <li>Roast: Dark</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Iced Latte</strong>
+        <ul>
+            <li>Caffeine Level: Medium</li>
+            <li>Milk Type: Cold Milk</li>
+            <li>Roast: Medium</li>
+        </ul>
+    </li>
+    <li>
+    <strong>Cookies</strong>
+    <ul>
+        <li>Flavor: Chocolate Chip</li>
+        <li>Texture: Soft & Crunchy</li>
+        <li>Served Fresh Daily</li>
+    </ul>
+</li>
+<li>
+    <strong>Cheesecake</strong>
+
+    <ul>
+        <li>Flavor: Creamy Vanilla</li>
+        <li>Topping: Strawberry Sauce</li>
+        <li>Cold Dessert</li>
+    </ul>
+
+</li>
+<li>
+    <strong>Matilda Cake</strong>
+
+    <ul>
+        <li>Flavor: Rich Chocolate</li>
+        <li>Texture: Moist & Soft</li>
+        <li>Served with Chocolate Sauce</li>
+    </ul>
+
+</li>
+</ul>
+    <!-- JavaScript -->
+<script src="cart.js"></script>
+
+</body>
+
+</html>
