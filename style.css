@@ -42,7 +42,7 @@ h1{
     background-image: url("home.jpg");
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
